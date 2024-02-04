@@ -1,0 +1,245 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1cea1;
+}
+.author-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.author {
+    flex: 1 0 calc(8% - 1%);
+    height: 15vh; 
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.author:hover {
+    transform: scale(1.2);
+}
+#author1 {
+    background: url('images/albert-camus.jpg') 0% top / 100% 100% no-repeat;
+}
+#author2 {
+    background: url('images/alejandro-dumas.jpg') 8% top / 100% 100% no-repeat;
+}
+#author3 {
+    background: url('images/alvaro-mutis.jpg') 16% top / 100% 100% no-repeat;
+}
+#author4 {
+    background: url('images/andres-caicedo.jpg') 24% top / 100% 100% no-repeat;
+}
+#author5 {
+    background: url('images/bram-stoker.jpg') 32% top / 100% 100% no-repeat;
+}
+#author6 {
+    background: url('images/charles-dickens.jpg') 40% top / 100% 100% no-repeat;
+}
+#author7 {
+    background: url('images/daniel-defoe.jpg') 48% top / 100% 100% no-repeat;
+}
+#author8 {
+    background: url('images/dante-alighieri.jpg') 56% top / 100% 100% no-repeat;
+}
+#author9 {
+    background: url('images/ernesto-sabato.jpg') 64% top / 100% 100% no-repeat;
+}
+#author10 {
+    background: url('images/fernando-vallejo.jpg') 72% top / 100% 100% no-repeat;
+}
+#author11 {
+    background: url('images/fiodor-dostoyevski.jpg') 80% top / 100% 100% no-repeat;
+}
+#author12 {
+    background: url('images/franz-kafka.jpg') 86% top / 100% 100% no-repeat;
+}
+#author13 {
+    background: url('images/gabriel-marquez.jpg') 94% top / 100% 100% no-repeat;
+}
+#author14 {
+    background: url('images/gabriela-mistral.jpg') 102% top / 100% 100% no-repeat;
+}
+#author15 {
+    background: url('images/george-orwell.jpg') 0% 28% / 100% 100% no-repeat;
+}
+#author16 {
+    background: url('images/german-espinosa.jpg') 7% 28% / 100% 100% no-repeat;
+}
+#author17 {
+    background: url('images/gustave-flaubert.jpg') 14% 28% / 100% 100% no-repeat;
+}
+#author18 {
+    background: url('images/gustavo-becquer.jpg') 100% 28% / 100% 100% no-repeat;
+}
+#author19 {
+    background: url('images/herman-melville.jpg') 30% 28% / 100% 100% no-repeat;
+}
+#author20 {
+    background: url('images/hernest-hemingway.jpg') 38% 28% / 100% 100% no-repeat;
+}
+#author21 {
+    background: url('images/homero.jpg') 46% 28% / 100% 100% no-repeat;
+}
+#author22 {
+    background: url('images/isabel-allende.jpg') 54% 28% / 100% 100% no-repeat;
+}
+#author23 {
+    background: url('images/jairo-niño.jpg') 62% 28% / 100% 100% no-repeat;
+}
+#author24 {
+    background: url('images/james-joyce.jpg') 70% 28% / 100% 100% no-repeat;
+}
+#author25 {
+    background: url('images/jonathan-swift.jpg') 78% 28% / 100% 100% no-repeat;
+}
+#author26 {
+    background: url('images/jorge-amado.jpeg') 86% 28% / 100% 100% no-repeat;
+}
+#author27 {
+    background: url('images/jorge-borges.jpg') 94% 28% / 100% 100% no-repeat;
+}
+#author28 {
+    background: url('images/jose-marti.jpg') 102% 28% / 100% 100% no-repeat;
+}
+#author29 {
+    background: url('images/juan-onetti.jpg') 0% 56% / 100% 100% no-repeat;
+}
+#author30 {
+    background: url('images/julio-cortazar.jpg') 7% 56% / 100% 100% no-repeat;
+}
+#author31 {
+    background: url('images/julio-verne.jpg') 14% 56% / 100% 100% no-repeat;
+}
+#author32 {
+    background: url('images/leon-tolstoi.jpg') 22% 56% / 100% 100% no-repeat;
+}
+#author33 {
+    background: url('images/mario-benedetti.jpg') 30% 56% / 100% 100% no-repeat;
+}
+#author34 {
+    background: url('images/mario-llosa.jpg') 38% 56% / 100% 100% no-repeat;
+}
+#author35 {
+    background: url('images/mark-twain.jpg') 46% 56% / 100% 100% no-repeat;
+}
+#author36 {
+    background: url('images/mary-shelley.jpg') 54% 56% / 100% 100% no-repeat;
+}
+#author37 {
+    background: url('images/miguel-asturias.jpg') 62% 56% / 100% 100% no-repeat;
+}
+#author38 {
+    background: url('images/miguel-cervantes.jpg') 70% 56% / 100% 100% no-repeat;
+}
+#author39 {
+    background: url('images/miguel-unamuno.jpg') 78% 56% / 100% 100% no-repeat;
+}
+#author40 {
+    background: url('images/octavio-paz.jpg') 86% 56% / 100% 100% no-repeat;
+}
+#author41 {
+    background: url('images/oscar-wilde.jpg') 94% 56% / 100% 100% no-repeat;
+}
+#author42 {
+    background: url('images/pablo-neruda.jpg') 102% 56% / 100% 100% no-repeat;
+}
+#author43 {
+    background: url('images/rafael-pombo.jpg') 0% 84% / 100% 100% no-repeat;
+}
+#author44 {
+    background: url('images/ruben-dario.jpg') 7% 84% / 100% 100% no-repeat;
+}
+#author45 {
+    background: url('images/tolkien.jpg') 14% 84% / 100% 100% no-repeat;
+}
+#author46 {
+    background: url('images/truman-capote.jpg') 22% 84% / 100% 100% no-repeat;
+}
+#author47 {
+    background: url('images/umberto-eco.jpg') 30% 84% / 100% 100% no-repeat;
+}
+#author48 {
+    background: url('images/victor-hugo.jpg') 38% 84% / 100% 100% no-repeat;
+}
+#author49 {
+    background: url('images/virginia-woolf.jpg') 46% 84% / 100% 100% no-repeat;
+}
+#author50 {
+    background: url('images/william-shakespeare.jpg') 54% 84% / 100% 100% no-repeat;
+}
+#author51 {
+    background: url('images/george-martin.jpg') 62% 84% / 100% 100% no-repeat;
+}
+#author52 {
+    background: url('images/leon-greiff.jpg') 70% 84% / 100% 100% no-repeat;
+}
+#author53 {
+    background: url('images/triunfo-arciniegas.jpg') 78% 84% / 100% 100% no-repeat;
+}
+#author54 {
+    background: url('images/fernando-rojas.jpg') 86% 84% / 100% 100% no-repeat;
+}
+#author55 {
+    background: url('images/isaac-asimov.jpg') 94% 84% / 100% 100% no-repeat;
+}
+#author56 {
+    background: url('images/edgar-po.jpg') 102% 84% / 100% 100% no-repeat;
+}
+#tooltip {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.button-row {
+    display: flex;
+    width: 100%;
+    background-color: #34495e; 
+}
+.button {
+    flex: 1;
+    padding: 10px; 
+    text-align: center;
+    background-color: #2f455b; 
+    color: white;
+    font-size: 1.4em; 
+    font-family: italic;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-top: 3px solid #f1cea1;
+    transition: background-color 0.3s ease; 
+}
+.button:not(:last-child) {
+    border-right: 3px solid #f1cea1; 
+}
+.button:hover {
+    background-color: #131a24; 
+}
+.spaces {
+    display: flex;
+    width: 100%;
+    margin-top: 14px;
+}
+.space {
+    flex: 1;
+    height: 200px;
+    width: 300px;
+    background-image: url('images/pluma2.jpg'); 
+    background-size: 100% 100%;
+    margin-left: 50px; 
+}
+.text-space {
+    flex: 2;
+    text-align: center;
+}
+.text {
+    font-size: 4.7em;
+    font-weight: bold;
+    font-family: 'Old English Text MT';
+}

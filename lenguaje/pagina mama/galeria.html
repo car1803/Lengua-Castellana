@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      background-image: url('despensa.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .gallery-buttons {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .gallery-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    
+    .gallery {
+      max-width: 1200px;
+      margin: 20px auto;
+      display: none;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .gallery-item img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .add-button {
+      width: 90%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ddd;
+      font-size: 36px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Galería de Imágenes</h1>
+    <div class="gallery-buttons">
+      <button class="gallery-button" onclick="showGallery(1)">Actividades con estudiantes</button>
+      <button class="gallery-button" onclick="showGallery(2)">Actividades del área</button>
+      <button class="gallery-button" onclick="showGallery(3)">Actividades generales</button>
+      <button class="gallery-button" onclick="showGallery(4)">Evidencias Comunicación con responsables</button>
+    </div>
+  </header>
+
+  <div class="gallery" id="gallery1">
+    <div class="gallery-item add-button" onclick="openFileInput(1)">+
+      <input type="file" id="fileInput1" style="display:none" multiple onchange="handleFileSelect(event, 1)">
+    </div>
+  </div>
+
+  <div class="gallery" id="gallery2">
+    <div class="gallery-item add-button" onclick="openFileInput(2)">+
+      <input type="file" id="fileInput2" style="display:none" multiple onchange="handleFileSelect(event, 2)">
+    </div>
+  </div>
+  
+  <div class="gallery" id="gallery3">
+    <div class="gallery-item add-button" onclick="openFileInput(3)">+
+      <input type="file" id="fileInput3" style="display:none" multiple onchange="handleFileSelect(event, 3)">
+    </div>
+  </div>
+
+  <div class="gallery" id="gallery4">
+    <div class="gallery-item add-button" onclick="openFileInput(4)">+
+      <input type="file" id="fileInput4" style="display:none" multiple onchange="handleFileSelect(event, 4)">
+    </div>
+  </div>
+
+  <script>
+    function showGallery(galleryNumber) {
+      document.querySelectorAll('.gallery').forEach(gallery => {
+        gallery.style.display = 'none';
+      });
+      document.getElementById(`gallery${galleryNumber}`).style.display = 'grid';
+
+      fetch(`/imagenes/gallery/${galleryNumber}`)
+        .then(response => response.json())
+        .then(images => {
+          const gallery = document.getElementById(`gallery${galleryNumber}`);
+          gallery.innerHTML = ''; // Clear existing content
+          images.forEach(image => {
+            const newImage = document.createElement('div');
+            newImage.classList.add('gallery-item');
+            const imgElement = document.createElement('img');
+            imgElement.src = `data:image/jpeg;base64,${image.content}`;
+            newImage.appendChild(imgElement);
+            gallery.appendChild(newImage);
+          });
+        })
+        .catch(error => console.error('Error fetching images:', error));
+    }
+
+    function openFileInput(galleryNumber) {
+      document.getElementById(`fileInput${galleryNumber}`).click();
+    }
+
+    async function handleFileSelect(event, galleryNumber) {
+      const files = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+          const imageSrc = e.target.result;
+          await addImageToGallery(imageSrc, galleryNumber);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    async function addImageToGallery(imageSrc, galleryNumber) {
+      try {
+        // Send the image to the server to be added to the database
+        const formData = new FormData();
+        formData.append('galleryNumber', galleryNumber);
+        formData.append('image', await fetch(imageSrc).then(res => res.blob()), 'image.jpg');
+
+        const response = await fetch('/imagenes', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add image to database');
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        // After adding the image, refresh the gallery
+        showGallery(galleryNumber);
+      } catch (error) {
+        console.error('Error adding image to database:', error);
+        alert('Error adding image to database. Please try again.');
+      }
+    }
+  </script>
+  </script>
+</body>
+</html>

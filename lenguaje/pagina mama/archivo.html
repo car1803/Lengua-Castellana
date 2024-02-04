@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            background-image: url('despensa.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .archivador {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+            width: 65%;
+            box-sizing: border-box;
+        }
+
+        .boton-agregar {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 10%;
+            margin-left: 89%;
+            margin-bottom: 1%;
+            box-sizing: border-box;
+        }
+
+        .cuadro {
+            margin: 5px 10px 0 10px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .boton-eliminar {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        h2{
+            text-align: left;
+            margin: 10px;
+        }
+    </style>
+    <title>Archivador</title>
+</head>
+<body>
+
+    <div class="archivador" id="primer-periodo">
+        <h2>Primer periodo</h2>
+        <button class="boton-agregar" onclick="agregarCuadro('primer-periodo')">+</button>
+    </div>
+
+    <div class="archivador" id="segundo-periodo">
+        <h2>Segundo periodo</h2>
+        <button class="boton-agregar" onclick="agregarCuadro('segundo-periodo')">+</button>
+    </div>
+
+    <div class="archivador" id="tercer-periodo">
+        <h2>Tercer periodo</h2>
+        <button class="boton-agregar" onclick="agregarCuadro('tercer-periodo')">+</button>
+    </div>
+
+    <div class="archivador" id="cuarto-periodo">
+        <h2>Cuarto periodo</h2>
+        <button class="boton-agregar" onclick="agregarCuadro('cuarto-periodo')">+</button>
+    </div>
+
+    <script>
+        function agregarCuadro(periodo) {
+            const archivador = document.getElementById(periodo);
+
+            const cuadro = document.createElement('div');
+            cuadro.className = 'cuadro';
+
+            const botonEliminar = document.createElement('button');
+            botonEliminar.className = 'boton-eliminar';
+            botonEliminar.innerHTML = 'X';
+            botonEliminar.onclick = function () {
+                archivador.removeChild(cuadro);
+            };
+
+            cuadro.appendChild(botonEliminar);
+
+            archivador.appendChild(cuadro);
+        }
+    </script>
+
+</body>
+</html>

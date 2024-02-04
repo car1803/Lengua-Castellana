@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Download</title>
+</head>
+<body>
+  <button onclick="downloadFile()">Download Document</button>
+
+  <script>
+    async function downloadFile() {
+      const response = await fetch('http://localhost:3000/documentos/65a34424f0c586526528375c');
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'document.pdf';
+      link.click();
+    }
+  </script>
+</body>
+</html>
